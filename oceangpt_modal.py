@@ -32,5 +32,5 @@ def api_endpoint(request: PromptRequest):
         pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
     # Run inference
-    out = pipe(request.prompt, max_new_tokens=200, do_sample=True, temperature=0.7)
+    out = pipe(request.prompt, max_new_tokens=1000, do_sample=True, temperature=0.7)
     return {"response": out[0]["generated_text"]}
